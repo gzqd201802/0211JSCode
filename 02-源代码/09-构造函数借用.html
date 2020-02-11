@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+
+        // Person 构造函数
+        function Person(name, age, height) {
+            this.name = name;
+            this.age = age;
+            this.height = height;
+        }
+
+        // Student 构造函数
+        function Student(name, age, height, number) {
+            // this.name = name;
+            // this.age = age;
+            // this.height = height;
+            Person.call(this, name, age, height);
+            this.number = number;
+        }
+
+        const s1 = new Student('小红', 18, '160cm', 55); 
+
+        console.log(s1); // Student {name: "小红", age: 18, height: "160cm", number: 55}
+
+        // 想清楚以下两个关键点：
+        //      1. Student 构造函数里面的 this 指向 => new 出来的 Student 实例
+        //      2. call 做了什么事情：三件事
+        //          2.1. 把构造函数 Person 当做普通函数执行了
+        //          2.2. 把 Person 内部的 this 设置成了传入的第一个参数
+        //          2.2. 把 name, age, height 参数数据传递过去
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
