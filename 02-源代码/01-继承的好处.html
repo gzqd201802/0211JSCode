@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" data-index="0">盒子</div>
+    <input type="text" id="ipt" data-tip="你好">
+
+    <script>
+
+        const box = document.querySelector('#box');
+        const ipt = document.querySelector('#ipt');
+
+        console.log(typeof box);
+        console.log(typeof ipt);
+
+        let index = box.getAttribute('data-index');
+        let tip = ipt.getAttribute('data-tip');
+
+        // 为什么不同的元素都能调用 .getAttribute() 方法
+        //  答案：在元素对象的原型链上有一个原型对象封装了 .getAttribute() 方法
+        //        所有元素都能继承该原型对象上的 .getAttribute() 方法
+
+        console.log(index);
+        console.log(tip);
+        
+        
+        console.log(box.__proto__);
+        console.log(ipt.__proto__);
+        
+        console.log(box.__proto__.__proto__ === ipt.__proto__.__proto__);  // true
+        
+
+    </script>
+</body>
+</html>
