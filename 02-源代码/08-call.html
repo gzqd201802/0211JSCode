@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
 
         // Person 构造函数
-        function Person(name,age){
+        function Person(name, age) {
             this.name = name;
             this.age = age;
             console.log(this);
@@ -17,13 +19,16 @@
 
         // call，apply 的功能主要是设置函数内部 this 对象的值
 
-        const obj = { height: '175cm' };
+        const obj = { height: '175cm' , name:'小黄' };
 
         //  call 在这里做了两件事
-        //      1. 把构造函数Person 当做普通函数执行了
+        //      1. 把构造函数 Person 当做普通函数执行了
         //      2. 把 Person 内部的 this 设置成了传入的 obj
         debugger;
-        Person.call(obj);
+        Person.call(obj, '小白', 18);
+
+        console.log(obj.name);      // 小白
+        
 
         // 注意事项：
         //    这里没有 new Person() 因为不需要创建新对象，
@@ -32,4 +37,5 @@
 
     </script>
 </body>
+
 </html>
