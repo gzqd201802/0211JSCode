@@ -31,12 +31,19 @@
             this.age = age;
             this.number = number;
         }
-     
+        
         // 把 Student 原型对象覆盖层 new Person();
         // 目的：为了 Student 实例能继承 Person 原型对象的方法
         Student.prototype = new Person();
         // 重新让 constructor 指回来
         Student.prototype.constructor = Student;
+
+        // 在原型继承后，再给原型对象添加其他方法
+        Student.prototype.code = function(){
+            console.log(`${this.name}能 Coding 写代码`);
+        }
+
+        // new Person() === Student.prototype // ??? false，内存地址不相等
 
         const s1 = new Student('小明', 19, '学号666');
 
@@ -46,6 +53,8 @@
         console.log(s1.__proto__ === Student.prototype);    // true
 
         s1.sayHi();
+
+        console.log(Student.prototype); // ?? Person {name: undefined, age: undefined, constructor: ƒ, code: ƒ}
 
     </script>
 

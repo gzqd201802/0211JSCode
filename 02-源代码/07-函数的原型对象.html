@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 定义函数的写法有几种？具体点说出来。
+        //   1. 函数声明
+        //   2. 函数表达式
+        //   3. Function 构造函数
+
+        // 1. 函数声明
+        function fn2(a,b){
+            console.log(a+b);
+        }
+
+        // 2. 函数表达式
+        let fn1 = function (a,b){
+            console.log(a+b);
+        }
+
+
+        // 3. Function 构造函数 - 少用甚至不用，属于函数创建底层语法。
+        let fn3 = new Function('a','b','console.log(a+b)');
+
+
+        // 总结：所有函数的其实都是 Function 的实例。
+        // console.log(fn1.__proto__ === Function.prototype);  // true
+
+        console.dir(Function.prototype);
+        
+        
+        
+        
+
+    </script>
+</body>
+</html>
