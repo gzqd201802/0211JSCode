@@ -43,7 +43,9 @@
         console.log(Person.prototype.constructor);  // Person
         console.log(Student.prototype.constructor); // Student
 
+        console.log(s1.__proto__ === Student.prototype);    // true
 
+        s1.sayHi();
 
     </script>
 
