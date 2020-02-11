@@ -10,15 +10,18 @@
 
     <script>
 
-        const box = document.querySelector('#box');
-        console.dir(box);
+        const div = document.querySelector('#box');
+        // 输出 div
+        console.dir(div);
 
-        console.log(box.__proto__); // div 的爸爸 - HTMLDivElement.prototype
+        // 输出 div 爸爸 -> 原型对象 HTMLDivElement.prototype
+        console.log(div.__proto__); 
 
-        console.log(box.__proto__.__proto__);
+        // 输出 div 爸爸的爸爸 - 原型对象 HTMLElement.prototype
+        console.log(div.__proto__.__proto__);
         
 
-        
+
         
         
         
