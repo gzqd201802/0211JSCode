@@ -14,26 +14,25 @@
         function Person(name, age) {
             this.name = name;
             this.age = age;
-            console.log(this);
         }
 
         // call，apply 的功能主要是设置函数内部 this 对象的值
 
-        const obj = { height: '175cm' , name:'小黄' };
+        const obj = { height: '175cm' };
 
-        //  call 在这里做了3件事
+        //  call 在这里做了两件事
         //      1. 把构造函数 Person 当做普通函数执行了
         //      2. 把 Person 内部的 this 设置成了传入的第一个参数
         //      3. 把 所有参数都传递过去
-        debugger;
-        Person.call(obj, '小白', 18);
+        // debugger;
+        // Person.call(obj, '小白', 18);
 
-        console.log(obj.name);      // 小白
+        // apply 方法最多只能传两个参数，第一个为函数调用时的 this 对象，第二个一定是数组或伪数组结构
+        Person.apply(obj, ['小白', 18]);
+
+
+        console.log(obj);      // {height: "175cm", name: "小白", age: 18}
         
-
-        // 注意事项：
-        //    这里没有 new Person() 因为不需要创建新对象，
-        //    只是想借用 Person 构造函数给 obj 添加 name 属性和 age 属性而已。
 
 
     </script>

@@ -30,7 +30,8 @@
         // Student 构造函数
         function Student(name, age, height, number) {
             // 1. 借用构造函数继承
-            Person.call(this, name, age, height);
+            // Person.call(this, name, age, height);
+            Person.apply(this, [name, age, height]);
             // 在继承属性后再添加其他属性
             this.number = number;
         }
